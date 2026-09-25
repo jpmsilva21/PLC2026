@@ -1,4 +1,4 @@
-TPC1
+## TP1
 
 # Expressão regular para apanhar Strings Binárias que não contenham a substring "011"
 
@@ -17,10 +17,31 @@ TPC1
 
 ## Exemplos de Teste:
 
-- 01111110 -> Rejeitada
+- 01111110 -> Rejeitada (contém "011")
 - 1100 -> Aceite
-- 011011 -> Rejeitada
-- 101111 -> Rejeitada 
+- 011011 -> Rejeitada (contém "011")
+- 101111 -> Rejeitada (contém "011")
 - 1101 -> Aceite
 - 1010101010 -> Aceite
 - 0000 -> Aceite
+
+---
+
+## Implementação em Python
+
+Para validar a expressão regular de forma automatizada, implementei este script em Python:
+
+```python
+import re
+
+def valida_string_binaria(texto: str) -> bool:
+    padrao = r"^1*(0+1?)*$"
+    return bool(re.fullmatch(padrao, texto))
+
+testes = ["01111110","1100","011011","101111","1101","1010101010","0000"]
+
+print("=== Validação de Strings Binárias (sem '011') ===")
+for t in testes:
+    valida = valida_string_binaria(t)
+    estado = "Aceite" if valida else "Rejeitada"
+    print(f"{t:<12} -> {estado}")
