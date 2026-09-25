@@ -1,7 +1,17 @@
-- TP1
-- João Pedro Morais da Silva
-- A108483
-- - **Foto:** ![Foto](foto.JPG)
+## Autor
 
-- Desenvolvi uma Expressão Regular capaz de identificar e aceitar strings binárias que não contenham a substring "011"
-  Controlei a ocorrência de dígitos `1` a seguir a sequências de `0`, evitando que dois dígitos `1` consecutivos surjam após qualquer `0`. Usei o Regex101 para testar.
+- TP1
+- **Nome:** João Pedro Morais da Silva
+- **ID:** A108483
+- **Foto:** ![Foto](foto.JPG)
+
+## Resumo
+
+Desenvolver uma Expressão Regular capaz de identificar e aceitar strings binárias que não contenham a substring "011"
+
+## Resultador
+
+A expressão é: 
+
+```text
+^1*(0+1?)*$
