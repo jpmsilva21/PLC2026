@@ -1,6 +1,7 @@
+#### TP1 - Expressão regular para apanhar Strings Binárias que não contenham a substring "011"
+
 ## Autor
 
-- TP1
 - **Nome:** João Pedro Morais da Silva
 - **ID:** A108483
 - **Foto:** ![Foto](foto.JPG)
