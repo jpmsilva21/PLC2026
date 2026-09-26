@@ -11,7 +11,7 @@
 - De seguida, agrupamos os blocos em `(0+1?)*`:
   - `0+`: sempre que surge um zero, garantimos que é uma sequência de pelo menos um ou mais zeros
   - `1?`: a seguir a essa sequência de zeros só é permitido surgir no máximo um 1 (ou nenhum) para não termos o 011
-  - `*`: este padrão pode repetir-se muitas vezes ao longo da string
+  - `*`: este padrão pode repetir-se zero ou muitas vezes ao longo da string
 - Assim, é impossível surgir a sequência 011, cobrindo também casos terminados em 0
 - Acabamos com `$` para garantir que a validação vai até ao último dígito
 
