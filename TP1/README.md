@@ -12,7 +12,7 @@
 
 Desenvolver uma Expressão Regular capaz de identificar e aceitar strings binárias que não contenham a substring "011"
 
-## Resultador
+## Resultados
 
 A expressão é: 
 
