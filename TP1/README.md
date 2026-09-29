@@ -16,6 +16,7 @@ Desenvolver uma Expressão Regular capaz de identificar e aceitar strings binár
 
 A expressão é: 
 
-```text
-^1*(0+1?)*$
+``text
+^1*(0+1?)*$ ``
+
 - [Resolução](solucao.md) 
