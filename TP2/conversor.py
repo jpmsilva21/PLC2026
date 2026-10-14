@@ -6,7 +6,6 @@ def markdown_to_html(markdown_text: str) -> str:
     em_lista = False
 
     for linha in linhas:
-        # 1. Lista numerada (linhas começadas por dígitos seguidos de ponto: '1. item')
         match_lista = re.match(r"^\s*\d+\.\s+(.*)$", linha)
         if match_lista:
             if not em_lista:
@@ -21,7 +20,6 @@ def markdown_to_html(markdown_text: str) -> str:
                 html_linhas.append("</ol>")
                 em_lista = False
 
-        # 2. Cabeçalhos (# texto, ## texto, ### texto, etc.)
         match_header = re.match(r"^(#{1,6})\s+(.*)$", linha)
         if match_header:
             nivel = len(match_header.group(1))
@@ -29,7 +27,6 @@ def markdown_to_html(markdown_text: str) -> str:
             html_linhas.append(f"<h{nivel}>{conteudo_header}</h{nivel}>")
             continue
 
-        # Linhas de texto comum
         if linha.strip():
             html_linhas.append(processa_inline(linha))
         else:
@@ -43,22 +40,18 @@ def markdown_to_html(markdown_text: str) -> str:
 
 def processa_inline(texto: str) -> str:
     """Processa formatação inline: imagens, links, bold e itálico."""
-    # Imagem: ![texto alternativo](caminho) -> deve ser processada antes do link!
     texto = re.sub(r"!\[(.*?)\]\((.*?)\)", r'<img src="\2" alt="\1"/>', texto)
 
-    # Link: [texto](URL)
     texto = re.sub(r"\[(.*?)\]\((.*?)\)", r'<a href="\2">\1</a>', texto)
 
-    # Bold: **texto**
     texto = re.sub(r"\*\*(.*?)\*\*", r"<b>\1</b>", texto)
 
-    # Itálico: *texto* (que não seja parte de **)
     texto = re.sub(r"(?<!\*)\*(?!\*)(.*?)(?<!\*)\*(?!\*)", r"<i>\1</i>", texto)
 
     return texto
 
 
-# Teste com os exemplos fornecidos na aula
+# Teste com os exemplos
 if __name__ == "__main__":
     exemplo_md = """# Exemplo
 
